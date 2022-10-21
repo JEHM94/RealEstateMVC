@@ -1,0 +1,33 @@
+@use 'base/variables' as v;
+
+@mixin mediaQuery($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin grid($column, $gap) {
+    display: grid;
+    grid-template-columns: repeat($column, 1fr);
+    gap: $gap;
+}
+
+@mixin button($bgColor, $display) {
+    background-color: $bgColor;
+    color: v.$colorWhite;
+    font-weight: v.$weightBold;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: calc(v.$separation / 2);
+    display: $display;
+    border: none;
+    border-radius: 10px;
+
+    @include mediaQuery(v.$desktop) {
+        &:hover {
+            background-color: darken($color: $bgColor, $amount: 5);
+            cursor: pointer;
+        }
+    }
+}
