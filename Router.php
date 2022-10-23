@@ -13,6 +13,11 @@ class Router
         $this->routesGET[$url] = $function;
     }
 
+    public function post($url, $function)
+    {
+        $this->routesPOST[$url] = $function;
+    }
+
     public function verifyRoutes()
     {
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
@@ -20,6 +25,10 @@ class Router
 
         if ($method === 'GET') {
             $function = $this->routesGET[$currentUrl] ?? null;
+        }
+
+        if ($method === 'POST') {
+            $function = $this->routesPOST[$currentUrl] ?? null;
         }
 
         if ($function) {

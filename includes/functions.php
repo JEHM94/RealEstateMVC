@@ -3,7 +3,7 @@
 define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCTIONS_URL', __DIR__ . 'functions.php');
 
-define('IMAGE_FOLDER', __DIR__ . '/../images/');
+define('IMAGE_FOLDER', $_SERVER['DOCUMENT_ROOT'] . '/images/');
 
 // Property
 define('PROPERTY_REGISTERED', 'Propiedad creada correctamente');
@@ -24,7 +24,7 @@ function includeTemplate(string $templateName, bool $isIndex = false)
 function redirectToAdmin(string $redirectionMessage = null)
 {
 
-    if ($redirectionMessage == null) {
+    if (is_null($redirectionMessage)) {
         header('Location: /admin');
     } else {
         $message = md5($redirectionMessage);

@@ -29,7 +29,7 @@ if (!isset($isIndex)) {
             <div class="bar">
                 <div class="mobile-header">
                     <a href="/">
-                        <img src=" /build/img/logo.svg" alt="Logotipo de Bienes Raíces">
+                        <img src="/build/img/logo.svg" alt="Logotipo de Bienes Raíces">
                     </a>
 
                     <div class="mobile-menu">
