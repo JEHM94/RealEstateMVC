@@ -4,9 +4,21 @@ require_once __DIR__ . '/../includes/app.php';
 use MVC\Router;
 use Controllers\PropertyController;
 use Controllers\SellerController;
+use Controllers\SiteController;
 
 $router = new Router;
 
+// Main Site Routes
+$router->get('/', [SiteController::class, 'index']);
+$router->get('/nosotros', [SiteController::class, 'nosotros']);
+$router->get('/propiedades', [SiteController::class, 'propiedades']);
+$router->get('/propiedad', [SiteController::class, 'propiedad']);
+$router->get('/blog', [SiteController::class, 'blog']);
+$router->get('/entrada', [SiteController::class, 'entrada']);
+$router->get('/contacto', [SiteController::class, 'contacto']);
+$router->post('/contacto', [SiteController::class, 'contacto']);
+
+// Adming Route
 $router->get('/admin', [PropertyController::class, 'index']);
 // Create Property Routes
 $router->get('/properties/crear', [PropertyController::class, 'create']);

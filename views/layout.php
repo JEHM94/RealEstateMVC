@@ -11,7 +11,6 @@ if (!isset($isIndex)) {
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,13 +41,13 @@ if (!isset($isIndex)) {
                         <img class="dark-mode-btn" src="/build/img/dark-mode.svg" alt="Botón de Modo Oscuro">
                     </div>
                     <nav class="navigation">
-                        <a href="/nosotros.php">Nosotros</a>
-                        <a href="/anuncios.php">Anuncios</a>
-                        <a href="/blog.php">Blog</a>
-                        <a href="/contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/propiedades">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
                         <?php if ($auth) : ?>
                             <a href="/admin">Admin</a>
-                            <a href="/cerrar-sesion.php">Cerrar Sesión</a>
+                            <a href="/cerrar-sesion">Cerrar Sesión</a>
                         <?php endif; ?>
                     </nav>
                 </div><!-- .right -->
@@ -63,10 +62,10 @@ if (!isset($isIndex)) {
         <div class="container footer-container">
             <div class="container ">
                 <nav class="navigation nav-footer">
-                    <a href="/nosotros.php">Nosotros</a>
-                    <a href="/anuncios.php">Anuncios</a>
-                    <a href="/blog.php">Blog</a>
-                    <a href="/contacto.php">Contacto</a>
+                    <a href="/nosotros">Nosotros</a>
+                    <a href="/propiedades">Anuncios</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/contacto">Contacto</a>
                 </nav>
             </div>
 

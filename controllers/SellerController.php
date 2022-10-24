@@ -78,7 +78,7 @@ class SellerController
             'errors' => $errors
         ]);
     }
-    public static function delete(Router $router)
+    public static function delete()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
