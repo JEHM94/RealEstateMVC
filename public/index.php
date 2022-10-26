@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../includes/app.php';
 
+use Controllers\LoginController;
 use MVC\Router;
 use Controllers\PropertyController;
 use Controllers\SellerController;
@@ -18,25 +19,33 @@ $router->get('/entrada', [SiteController::class, 'entrada']);
 $router->get('/contacto', [SiteController::class, 'contacto']);
 $router->post('/contacto', [SiteController::class, 'contacto']);
 
-// Adming Route
+// Login & Auth Routes
+$router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
+$router->get('/logout', [LoginController::class, 'logout']);
+
+// Admin Route **PROTECTED**
 $router->get('/admin', [PropertyController::class, 'index']);
-// Create Property Routes
+
+// *** Property Routes *** //
+// Create Property Routes **PROTECTED**
 $router->get('/properties/crear', [PropertyController::class, 'create']);
 $router->post('/properties/crear', [PropertyController::class, 'create']);
-// Update Property Routes
+// Update Property Routes **PROTECTED**
 $router->get('/properties/actualizar', [PropertyController::class, 'update']);
 $router->post('/properties/actualizar', [PropertyController::class, 'update']);
-// Delete Property Routes
+// Delete Property Routes **PROTECTED**
 $router->get('/properties/eliminar', [PropertyController::class, 'delete']);
 $router->post('/properties/eliminar', [PropertyController::class, 'delete']);
 
-// Create Seller Routes
+// *** Seller Routes *** //
+// Create Seller Routes **PROTECTED**
 $router->get('/sellers/crear', [SellerController::class, 'create']);
 $router->post('/sellers/crear', [SellerController::class, 'create']);
-// Update Seller Routes
+// Update Seller Routes **PROTECTED**
 $router->get('/sellers/actualizar', [SellerController::class, 'update']);
 $router->post('/sellers/actualizar', [SellerController::class, 'update']);
-// Delete Seller Routes
+// Delete Seller Routes **PROTECTED**
 $router->get('/sellers/eliminar', [SellerController::class, 'delete']);
 $router->post('/sellers/eliminar', [SellerController::class, 'delete']);
 

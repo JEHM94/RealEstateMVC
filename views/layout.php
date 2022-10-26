@@ -47,7 +47,7 @@ if (!isset($isIndex)) {
                         <a href="/contacto">Contacto</a>
                         <?php if ($auth) : ?>
                             <a href="/admin">Admin</a>
-                            <a href="/cerrar-sesion">Cerrar Sesión</a>
+                            <a href="/logout">Cerrar Sesión</a>
                         <?php endif; ?>
                     </nav>
                 </div><!-- .right -->

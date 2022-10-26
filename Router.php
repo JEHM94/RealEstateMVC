@@ -20,6 +20,21 @@ class Router
 
     public function verifyRoutes()
     {
+        // Auth
+        session_start();
+        $auth = $_SESSION['login'] ?? null;
+
+        // Protected Routes Array
+        $protected_routes = [
+            '/admin',
+            '/properties/crear',
+            '/properties/actualizar',
+            '/properties/eliminar',
+            '/sellers/crear',
+            '/sellers/actualizar',
+            '/sellers/eliminar'
+        ];
+
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -31,17 +46,23 @@ class Router
             $function = $this->routesPOST[$currentUrl] ?? null;
         }
 
+        // Protect Routes
+        if (in_array($currentUrl, $protected_routes) && !$auth) {
+            header('Location: /');
+        }
+
         if ($function) {
             // The URL exists and has a valid function
             call_user_func($function, $this);
         } else {
-            echo "Page not found.";
+            //echo "Page not found.";
+            $this->renderView('/paginas/unknown');
         }
     }
 
     public function renderView($view, $data = [])
     {
-        foreach($data as $key => $value){
+        foreach ($data as $key => $value) {
             $$key = $value;
         }
 

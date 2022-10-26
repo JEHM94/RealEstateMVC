@@ -94,6 +94,8 @@ class SellerController
                     $seller->deleteRow();
                 }
             }
+        } else {
+            header('Location: /admin');
         }
     }
 }
