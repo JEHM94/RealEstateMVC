@@ -47,6 +47,8 @@ class Router
         }
 
         // Protect Routes
+        // If the current Url is a protected route
+        // and the user is not authenticated then redirect to /
         if (in_array($currentUrl, $protected_routes) && !$auth) {
             header('Location: /');
         }
