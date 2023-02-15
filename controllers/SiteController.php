@@ -69,7 +69,7 @@ class SiteController
     public static function contacto(Router $router)
     {
         $resultMessage = null;
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $contactForm = $_POST['contact'];
 
@@ -77,16 +77,16 @@ class SiteController
             $mail = new PHPMailer();
             // Config SMTP
             $mail->isSMTP();
-            $mail->Host = 'smtp.mailtrap.io';
+            $mail->Host = $_ENV['PHP_MAILER_HOST'];
             $mail->SMTPAuth = true;
-            $mail->Username = '7b056232a0401d';
-            $mail->Password = '6b23b3db884e65';
+            $mail->Username = $_ENV['PHP_MAILER_USERNAME'];
+            $mail->Password = $_ENV['PHP_MAILER_PASSWORD'];
             $mail->SMTPSecure = 'tls';
-            $mail->Port = 2525;
+            $mail->Port = $_ENV['PHP_MAILER_PORT'];
 
             // Config email Content
-            $mail->setFrom('admin@realestate.com');
-            $mail->addAddress('admin@realestate.com', 'RealEstate.com');
+            $mail->setFrom('admin@realestate.com' , 'RealEstate.com');
+            $mail->addAddress('jesus.e.hamel@gmail.com', 'RealEstate.com');
             $mail->Subject = 'Tienes un Nuevo Mensaje';
 
             // Enable HTML

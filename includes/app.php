@@ -1,7 +1,12 @@
 <?php
+require __DIR__ . '/../vendor/autoload.php';
+
+// Variables de entorno
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
+
 require 'functions.php';
 require 'config/database.php';
-require __DIR__ . '/../vendor/autoload.php';
 
 use Model\ActiveRecord;
 

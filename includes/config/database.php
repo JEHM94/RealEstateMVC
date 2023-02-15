@@ -1,11 +1,11 @@
 <?php
 
-function connectDB() : mysqli
+function connectDB(): mysqli
 {
-    $user = "root";
-    $password = "root";
-    $host = "localhost";
-    $dbName = "realstate_crud";
+    $user = $_ENV['DB_USERNAME'];
+    $password = $_ENV['DB_PASSWORD'];
+    $host = $_ENV['DB_HOST'];
+    $dbName = $_ENV['DB_NAME'];
 
     $db = new mysqli($host, $user, $password, $dbName);
 
@@ -16,6 +16,7 @@ function connectDB() : mysqli
     return $db;
 }
 
-function closeDB($db){
+function closeDB($db)
+{
     mysqli_close($db);
 }
